@@ -11,7 +11,8 @@ import java.util.List;
  * Blog   : http://www.liuling123.com
  * Date   : 2015/12/22
  */
-public interface WeatherView {
+public interface
+WeatherView {
 
     void showProgress();
     void hideProgress();

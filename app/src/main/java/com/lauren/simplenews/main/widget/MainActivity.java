@@ -17,6 +17,7 @@ import com.lauren.simplenews.main.presenter.MainPresenterImpl;
 import com.lauren.simplenews.main.view.MainView;
 import com.lauren.simplenews.news.widget.NewsFragment;
 import com.lauren.simplenews.weather.widget.WeatherFragment;
+import com.umeng.analytics.MobclickAgent;
 
 /**
  * Author : lauren
@@ -25,6 +26,7 @@ import com.lauren.simplenews.weather.widget.WeatherFragment;
  * Date   : 15/12/13
  */
 public class MainActivity extends AppCompatActivity implements MainView {
+
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -109,5 +111,17 @@ public class MainActivity extends AppCompatActivity implements MainView {
     public void switch2About() {
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new AboutFragment()).commit();
         mToolbar.setTitle(R.string.navigation_about);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(getApplicationContext());
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(getApplicationContext());
     }
 }

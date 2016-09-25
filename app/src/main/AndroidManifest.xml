@@ -8,6 +8,10 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
+    //友盟统计
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,7 +31,15 @@
         <activity
             android:name=".news.widget.NewsDetailActivity"
             android:label="@string/title_activity_news_detail"
-            android:theme="@style/AppTheme.NoActionBar.Translucent"></activity>
+            android:theme="@style/AppTheme.NoActionBar.Translucent" />
+
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="	57e7b009e0f55a835b001086" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
     </application>
 
 </manifest>

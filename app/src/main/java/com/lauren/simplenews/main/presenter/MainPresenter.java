@@ -7,6 +7,6 @@ package com.lauren.simplenews.main.presenter;
  * Blog   : http://www.liuling123.com
  * Date   : 15/12/13
  */
-public interface MainPresenter {
+public interface  MainPresenter {
     void switchNavigation(int id);
 }

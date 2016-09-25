@@ -17,6 +17,7 @@ import com.lauren.simplenews.beans.WeatherBean;
 import com.lauren.simplenews.weather.presenter.WeatherPresenter;
 import com.lauren.simplenews.weather.presenter.WeatherPresenterImpl;
 import com.lauren.simplenews.weather.view.WeatherView;
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +57,7 @@ public class WeatherFragment extends Fragment implements WeatherView {
         mTodayTemperatureTV = (TextView) view.findViewById(R.id.weatherTemp);
         mTodayWindTV = (TextView) view.findViewById(R.id.wind);
         mTodayWeatherTV = (TextView) view.findViewById(R.id.weather);
-        mCityTV = (TextView)view.findViewById(R.id.city);
+        mCityTV = (TextView) view.findViewById(R.id.city);
         mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
         mWeatherLayout = (LinearLayout) view.findViewById(R.id.weather_layout);
         mWeatherContentLayout = (LinearLayout) view.findViewById(R.id.weather_content);
@@ -134,5 +135,18 @@ public class WeatherFragment extends Fragment implements WeatherView {
     @Override
     public void showErrorToast(String msg) {
         Snackbar.make(getActivity().findViewById(R.id.drawer_layout), msg, Snackbar.LENGTH_SHORT).show();
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(getActivity());
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(getActivity());
     }
 }

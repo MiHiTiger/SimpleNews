@@ -14,6 +14,7 @@ import com.lauren.simplenews.news.presenter.NewsDetailPresenterImpl;
 import com.lauren.simplenews.news.view.NewsDetailView;
 import com.lauren.simplenews.utils.ToolsUtil;
 import com.lauren.simplenews.utils.ImageLoaderUtils;
+import com.umeng.analytics.MobclickAgent;
 
 import org.sufficientlysecure.htmltextview.HtmlTextView;
 
@@ -80,5 +81,18 @@ public class NewsDetailActivity extends SwipeBackActivity implements NewsDetailV
     @Override
     public void hideProgress() {
         mProgressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(getApplicationContext());
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(getApplicationContext());
+
     }
 }

@@ -19,6 +19,7 @@ import java.util.List;
 public class NewsModelImpl implements NewsModel {
 
     /**
+     * http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0305/2545.html
      * 加载新闻列表
      * @param url
      * @param listener
